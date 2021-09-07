@@ -68,12 +68,13 @@ void Not_Start(uint32_t* AD) //PREGUNTAR
 	uint8_t result = Estado_Disparo_AD(*AD);
 	if (result != 0) //si esta prendido fuerzo un 0
 	{
-		uint32_t pre = *AD >> START + 1;
+		/*uint32_t pre = *AD >> START + 1;
 		uint32_t start = *AD >> START;
 		uint32_t aux = *AD & (0x00FFFFF);
 		start = start& (0x00000000);
 
-		*AD = (pre << 31) | (start << 24) | aux;
+		*AD = (pre << 31) | (start << 24) | aux;*/
+		*AD = *AD & 0xF8FFFFFF;
 	}
 }
 

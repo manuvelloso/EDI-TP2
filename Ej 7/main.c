@@ -25,6 +25,7 @@ int main()
 	Not_Start(&test);
 	START = Estado_Disparo_AD(test);
 	printf("STAR: %d\n", START);
+	Print_Estado(Estado_AD(AD0CR));
 	printf("AD0CR: 0x%x\n", test);
 
 	Activar_Entrada_AD(&test, 1);

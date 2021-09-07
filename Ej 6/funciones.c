@@ -2,12 +2,17 @@
 
 int32_t ApagarBit(uint32_t *var, uint8_t nBit)
 {
-	uint32_t aux = *var >> nBit;
-	aux = aux & 0x00000001;
-	if (aux == 1)
+	if (nBit <= 31) //me paso de los bits que tengo
 	{
-		*var = *var & (~((0x00000001) << nBit)); //fuerzo el 0
-		return 0;
+		uint32_t aux = *var >> nBit;
+		aux = aux & 0x00000001;
+		if (aux == 1)
+		{
+			*var = *var & (~((0x00000001) << nBit)); //fuerzo el 0
+			return 0;
+		}
+		else
+			return 1;
 	}
 	else
 		return 1;
@@ -15,12 +20,17 @@ int32_t ApagarBit(uint32_t *var, uint8_t nBit)
 
 int32_t EncenderBit(uint32_t* var, uint8_t nBit)
 {
-	uint32_t aux = *var >> nBit;
-	aux = aux & 0x00000001;
-	if (aux == 0)
+	if (nBit <= 31) //me paso de los bits que tengo
 	{
-		*var = *var | ((0x00000001) << nBit); //fuerzo el 1
-		return 0;
+		uint32_t aux = *var >> nBit;
+		aux = aux & 0x00000001;
+		if (aux == 0)
+		{
+			*var = *var | ((0x00000001) << nBit); //fuerzo el 1
+			return 0;
+		}
+		else
+			return 1;
 	}
 	else
 		return 1;
@@ -42,4 +52,8 @@ int32_t InvertirBit(uint32_t* var, uint8_t nBit)
 		return ApagarBit(var, nBit);
 	else //si el bit esta en 0
 		return EncenderBit(var, nBit);
+
+	//Con XOR
+	*var = *var ^ (0x001 << nBit);
+
 }

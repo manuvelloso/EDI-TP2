@@ -7,10 +7,10 @@ void ImprimirBin8 (int8_t num);*/
 
 int main()
 {
-	int8_t num = 154;
-	ImprimirBin8(10);
-	ImprimirBin16(10);
-	ImprimirBin32(10);
+	int8_t num = 128;
+	ImprimirBin8(num);
+	ImprimirBin16(num);
+	ImprimirBin32(num);
 
 	return 0;
 }

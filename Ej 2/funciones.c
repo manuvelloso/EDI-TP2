@@ -11,7 +11,7 @@ void ImprimirBin8(int8_t num)
 	printf("\nNumero en binario (8 bits): ");
 	for (uint8_t i = B8; i > 0; i--)
 	{
-		var = num & (0x01 << i-1);
+		var = num & (0x01 << i-1); //01010101 -> 00000001
 		var = var >> (i-1);
 
 		printf("%d ", var);
